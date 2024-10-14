@@ -1,1 +1,1 @@
-nigger
+import pygame
