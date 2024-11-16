@@ -17,6 +17,28 @@ running = True
 pipePath = "/images/pipe_sprite_single.png"
 flapPath = "/images/flap.png"
 
+class Pipe:
+    def __init__(self):
+        self.gap = 200  
+        self.width = 80
+        self.x = screenWidth
+        self.height = random.randint(150, screenHeight - 150 - self.gap)
+        self.color = (0, 255, 0)  
+        self.speed = 5
+        
+    def move(self):
+        self.x -= self.speed
+        
+    def draw(self, screen):
+        # Draw top pipe
+        pygame.draw.rect(screen, self.color, (self.x, 0, self.width, self.height))
+        # Draw bottom pipe
+        bottom_height = screenHeight - (self.height + self.gap)
+        pygame.draw.rect(screen, self.color, 
+                        (self.x, self.height + self.gap, self.width, bottom_height))
+        
+    def off_screen(self):
+        return self.x + self.width < 0
 
 while running:
     for event in pygame.event.get():
@@ -40,12 +62,6 @@ while running:
     frame_surface = pygame.surfarray.make_surface(flipped_frame_rgb)
     screen.blit(frame_surface, (0, 0))
     pygame.display.flip()
-
-
-
-
-
-
 
 
 
