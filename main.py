@@ -2,6 +2,8 @@ import cv2
 import mediapipe as mp
 import sys, time, random
 import pygame
+import pipe
+
 mp_face_detection = mp.solutions.face_detection
 mp_drawing = mp.solutions.drawing_utils
 face_detection = mp_face_detection.FaceDetection(min_detection_confidence=0.5)
@@ -13,17 +15,18 @@ screenWidth = 800
 screenHeight = 800
 screen = pygame.display.set_mode([screenWidth, screenHeight])
 running = True
-
 pipePath = "images/pipe_sprite_single.png"
+spritePath = "/images/flap.png"
+
 
 class Pipe:
     def __init__(self, speed=5):
         self.speed = speed
-
-        
+        self.x = screenWidth
     def move(self):
         self.x -= self.speed
     def draw(self):
+        pass
        
     
 
@@ -44,15 +47,4 @@ while running:
     frame_surface = pygame.surfarray.make_surface(flipped_frame_rgb)
     screen.blit(frame_surface, (0, 0))
     pygame.display.flip()
-
-
-
-
-
-
-
-
-
-
-
 
