@@ -2,7 +2,6 @@ import cv2
 import mediapipe as mp
 import sys, time, random
 import pygame
-import pipe
 
 mp_face_detection = mp.solutions.face_detection
 mp_drawing = mp.solutions.drawing_utils
@@ -26,9 +25,9 @@ class Pipe:
     def move(self):
         self.x -= self.speed
     def draw(self):
-        pass
-       
-    
+        pass 
+
+
 
 while running:
     for event in pygame.event.get():
