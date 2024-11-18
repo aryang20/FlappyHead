@@ -1,6 +1,5 @@
 import cv2
 import mediapipe as mp
-import sys, time, random
 import pygame
 
 mp_face_detection = mp.solutions.face_detection
